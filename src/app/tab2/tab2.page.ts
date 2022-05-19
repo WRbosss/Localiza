@@ -22,7 +22,7 @@ export class Tab2Page {
   }
 
   create() {
-    if (this.checkForEmpty) { true }
+    if (this.checkForEmpty) { return }
 
     this.carros.push(Object.assign({}, this.carro))
     localStorage.setItem("carros", JSON.stringify(this.carros))

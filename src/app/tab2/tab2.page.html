@@ -20,18 +20,7 @@
       <ion-label >Marca:</ion-label>
       
       <ion-select value="">
-              <ion-select-option value=1>Chevrolet</ion-select-option>
-              <ion-select-option value=2>Fiat</ion-select-option>
-              <ion-select-option value=3>Volkswagen</ion-select-option>
-              <ion-select-option value=4>Ford</ion-select-option>
-              <ion-select-option value=5>Renault</ion-select-option>
-              <ion-select-option value=6>Hyundai</ion-select-option>
-              <ion-select-option value=7>Toyota</ion-select-option>
-              <ion-select-option value=8>Honda</ion-select-option>
-              <ion-select-option value=9>Citroem</ion-select-option>
-              <ion-select-option value=10>Audi</ion-select-option>
-              <ion-select-option value=11>Jeep</ion-select-option>
-              <ion-select-option value=12>Nissam</ion-select-option>
+              
       </ion-select>
     </ion-item>
   </ion-list>   
@@ -43,37 +32,41 @@
     <ion-label >Modelo:</ion-label>
     
     <ion-select value="">
-            <ion-select-option value=1>January</ion-select-option>
-            <ion-select-option value=2>February</ion-select-option>
-            <ion-select-option value=3>March</ion-select-option>
-            <ion-select-option value=4>April</ion-select-option>
-            <ion-select-option value=5>May</ion-select-option>
-            <ion-select-option value=6>June</ion-select-option>
-            <ion-select-option value=7>July</ion-select-option>
-            <ion-select-option value=8>August</ion-select-option>
-            <ion-select-option value=9>September</ion-select-option>
-            <ion-select-option value=10>October</ion-select-option>
-            <ion-select-option value=11>November</ion-select-option>
-            <ion-select-option value=12>Deu pau</ion-select-option>
+            
     </ion-select>
   </ion-item>
 </ion-list>
 </div>
 
-  <ion-item id="inp_nome1">
+<!-- e se termina com <ion-item id="inp_nome1">
     <ion-label position="floating">Descrição:</ion-label>
     <ion-textarea placeholder="placeholder"></ion-textarea>
   </ion-item>
+ 
+    <ion-avatar class="ion-margin-star">
+      <img src="https://w7.pngwing.com/pngs/466/83/png-transparent-fiat-uno-car-suzuki-ignis-fiat-600-compact-car-car-subcompact-car.png" />
+    </ion-avatar>-->
 
-
+    <ion-card>
+      <img src="https://w7.pngwing.com/pngs/466/83/png-transparent-fiat-uno-car-suzuki-ignis-fiat-600-compact-car-car-subcompact-car.png"/>
+      <ion-card-header>
+        <ion-item>
+          <ion-label position="floating"><h2>Descrição:</h2></ion-label>
+          <ion-textarea placeholder="placeholder"></ion-textarea>
+        </ion-item>
+      </ion-card-header>
+      <ion-card-content>
+      </ion-card-content>
+    </ion-card>
+    
 
   <ion-item id="inp_nome">
-    <ion-label type="number" position="fixed">Preço:</ion-label>
-    <ion-input></ion-input>
+    <ion-label  position="fixed">Preço:</ion-label>
+    <ion-input type="number"></ion-input>
   </ion-item>
   
   <div class="buttonCentralize">
-  <ion-button class="butCadastrar" color="warning">Cadastrar</ion-button>
+  <ion-button class="butCadastrar" color="warning" (click)="create()">Cadastrar</ion-button>
   </div>
 
 
