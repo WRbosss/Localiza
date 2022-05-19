@@ -1,0 +1,81 @@
+{
+    "chevrolet":[
+        {"id":1, "model": "Corsa", "url":""},
+        {"id":2, "model": "Celta", "url":""},
+        {"id":3, "model": "Onix", "url":""},
+        {"id":4, "model": "Prisma", "url":""},
+        {"id":5, "model": "Captiva", "url":""},
+        {"id":6, "model": "Classic", "url":""},
+        {"id":7, "model": "Vectra", "url":""},
+        {"id":8, "model": "Cobalt", "url":""},
+        {"id":9, "model": "Agile", "url":""},
+        {"id":10, "model": "", "url":""}
+    ],
+
+    "fiat":[
+        {"id":1, "model": "Punto", "url":""},
+        {"id":2, "model": "Siena", "url":""},
+        {"id":3, "model": "Uno", "url":""},
+        {"id":4, "model": "Palio", "url":""},
+        {"id":5, "model": "Mobi", "url":""},
+        {"id":6, "model": "Palio Weekend", "url":""},
+        {"id":7, "model": "Idea", "url":""},
+        {"id":8, "model": "Strada", "url":""},
+        {"id":9, "model": "Toro", "url":""}
+    ],
+
+    "ford":[
+        {"id":1, "model": "", "url":""},
+        {"id":2, "model": "", "url":""},
+        {"id":3, "model": "", "url":""},
+        {"id":4, "model": "", "url":""},
+        {"id":5, "model": "", "url":""},
+        {"id":6, "model": "", "url":""},
+        {"id":7, "model": "", "url":""}
+    ],
+
+    "renault":[
+        {"id":1, "model": "", "url":""},
+        {"id":2, "model": "", "url":""},
+        {"id":3, "model": "", "url":""},
+        {"id":4, "model": "", "url":""},
+        {"id":5, "model": "", "url":""},
+        {"id":6, "model": "", "url":""},
+        {"id":7, "model": "", "url":""},
+        {"id":8, "model": "", "url":""},
+        {"id":9, "model": "", "url":""}
+    ],
+
+    "hyundai":[
+        {"id":1, "model": "", "url":""},
+        {"id":2, "model": "", "url":""},
+        {"id":3, "model": "", "url":""},
+        {"id":4, "model": "", "url":""},
+        {"id":5, "model": "", "url":""},
+        {"id":6, "model": "", "url":""},
+        {"id":7, "model": "", "url":""}
+    ],
+
+    "toyota":[
+        {"id":1, "model": "", "url":""},
+        {"id":2, "model": "", "url":""},
+        {"id":3, "model": "", "url":""}
+    ],
+
+    "honda":[
+        {"id":1, "model": "", "url":""},
+        {"id":2, "model": "", "url":""},
+        {"id":3, "model": "", "url":""}
+    ],
+
+    "volkswagen":[
+        {"id":1, "model": "", "url":""},
+        {"id":2, "model": "", "url":""},
+        {"id":3, "model": "", "url":""},
+        {"id":4, "model": "", "url":""},
+        {"id":5, "model": "", "url":""},
+        {"id":6, "model": "", "url":""}
+
+    ]
+    
+}
