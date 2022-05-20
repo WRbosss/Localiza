@@ -19,7 +19,7 @@
     <ion-item>
       <ion-label >Marca:</ion-label>
       
-      <ion-select value="">
+      <ion-select ([ngModel])="carro.marca" value="">
               
       </ion-select>
     </ion-item>
@@ -31,7 +31,7 @@
   <ion-item>
     <ion-label >Modelo:</ion-label>
     
-    <ion-select value="">
+    <ion-select ([ngModel])="carro.modelo" value="">
             
     </ion-select>
   </ion-item>
@@ -48,11 +48,12 @@
     </ion-avatar>-->
 
     <ion-card>
-      <img src="https://w7.pngwing.com/pngs/466/83/png-transparent-fiat-uno-car-suzuki-ignis-fiat-600-compact-car-car-subcompact-car.png"/>
+      <img src={{carro.foto}}>
+
       <ion-card-header>
         <ion-item>
           <ion-label position="floating"><h2>Descrição:</h2></ion-label>
-          <ion-textarea placeholder="placeholder"></ion-textarea>
+          <ion-textarea ([ngModel])="carro.descricao" placeholder="placeholder"></ion-textarea>
         </ion-item>
       </ion-card-header>
       <ion-card-content>
@@ -61,8 +62,8 @@
     
 
   <ion-item id="inp_nome">
-    <ion-label  position="fixed">Preço:</ion-label>
-    <ion-input type="number"></ion-input>
+    <ion-label position="fixed">Preço:</ion-label>
+    <ion-input ([ngModel])="carro.preco" type="number"></ion-input>
   </ion-item>
   
   <div class="buttonCentralize">

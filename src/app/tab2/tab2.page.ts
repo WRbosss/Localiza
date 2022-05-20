@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class Tab2Page {
 
-  carro: any = { id: Date.now(), marca:'', modelo:'', foto:'' }
+  carro: any = { id: Date.now(), marca:'', modelo:'', foto:'', descricao:'', preco:'' }
   carros: any = []
 
   constructor(private router: Router) {}
@@ -22,7 +22,11 @@ export class Tab2Page {
   }
 
   create() {
-    if (this.checkForEmpty) { return }
+    let image = "https://w7.pngwing.com/pngs/466/83/png-transparent-fiat-uno-car-suzuki-ignis-fiat-600-compact-car-car-subcompact-car.png"
+    this.carro.foto = image
+    if (this.checkForEmpty()) { 
+      return 
+    }
 
     this.carros.push(Object.assign({}, this.carro))
     localStorage.setItem("carros", JSON.stringify(this.carros))
@@ -40,8 +44,10 @@ export class Tab2Page {
   }
 
   warnUserOf(empty_area:string) {
-    this.carro[empty_area] = 'Esta área não pode ser vazia!'
+    this.carro[empty_area] = 12
+
   }
+
 
   button_Voltar(){
     this.router.navigate(['tabs/tab1']);
