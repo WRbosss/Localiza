@@ -8,7 +8,10 @@ import { Router } from '@angular/router';
 })
 export class Tab2Page {
 
-  carro: any = { id: Date.now(), marca:'', modelo:'', foto:'', descricao:'', preco:'' }
+  //carro: any = {marca: '', modelo: '', foto:'', unique: []}
+  
+
+  carro: any = { id: Date.now(), marca:'', modelo:'', foto:'', descricao:'', preco:''}
   carros: any = []
 
   constructor(private router: Router) {}
@@ -22,9 +25,8 @@ export class Tab2Page {
   }
 
   create() {
-    let image = "https://w7.pngwing.com/pngs/466/83/png-transparent-fiat-uno-car-suzuki-ignis-fiat-600-compact-car-car-subcompact-car.png"
-    this.carro.foto = image
     if (this.checkForEmpty()) { 
+      //this.clear()
       return 
     }
 
@@ -36,18 +38,22 @@ export class Tab2Page {
     let continue_not_allowed = false
     for(let key in this.carro) {
       if (this.carro[key] == '') {
-        this.warnUserOf(key)
+        //this.warnUserOf(key)
         continue_not_allowed = true
       }
     }
     return continue_not_allowed
   }
 
-  warnUserOf(empty_area:string) {
-    this.carro[empty_area] = 12
+  //warnUserOf(empty_area:string) {}
 
+  clear(){
+    this.carro.marca = ''
+    this.carro.modelo = ''
+    this.carro.foto = ''
+    this.carro.descricao = ''
+    this.carro.preco = ''
   }
-
 
   button_Voltar(){
     this.router.navigate(['tabs/tab1']);
