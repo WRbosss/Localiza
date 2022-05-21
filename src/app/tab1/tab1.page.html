@@ -1,19 +1,52 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Localiza
-    </ion-title>
+    <ion-buttons slot="end" color="greenyellow">
+      <ion-button id="color" (click)="button_TelaCadastro()"color="greenyellow">
+        <ion-icon slot="" name="add-outline"></ion-icon>     
+      </ion-button>
+    </ion-buttons>
+    <ion-title id="color">Localiza</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div id="adicionar">
-  <ion-fab vertical= "bottom" horizontal="end" slot="fixed">
+  <!--<div id="adicionar">
+  <ion-fab vertical= "bottom" horizontal="end" slot="fixed" position="flex">
     <ion-fab-button (click)= "button_TelaCadastro()">
       <ion-icon name="add" ></ion-icon>
     </ion-fab-button>
   </ion-fab>
+  </div>-->
+  <div id="card">
+  <ion-card>
+            <img src="https://secure-developments.com/commonwealth/brasil/gm_forms/assets/front/images/jellys/61eb1d424183d.png" (click)="button_TelaDeCompra()"/>
+            <ion-card-header (click)="button_TelaDeCompra()">
+              <ion-card-subtitle>Marca</ion-card-subtitle>
+              <ion-card-title (click)="button_TelaDeCompra()">Modelo</ion-card-title>
+            </ion-card-header>
+            <ion-card-content (click)="button_TelaDeCompra()">
+              Farol de neblina, Direção Elétrica, Comando de áudio no volante, Banco bi-partido, Controle de estabilidade, Distribuição eletrônica de frenagem, Kit Multimídia, Pára-choques na cor do veículo.
+            </ion-card-content>
+            <h1 id="precoCard" (click)="button_TelaDeCompra()">R$ 120.000,00</h1>
+            <ion-button expand="block"
+            fill="outline" id="buttonD" color="greenyellow" (click)="button_Estoque()">
+              <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+            </ion-button>
+          </ion-card>  
   </div>
-  
-
+  <ion-card>
+            <img src="https://secure-developments.com/commonwealth/brasil/gm_forms/assets/front/images/jellys/61eb1d424183d.png" />
+            <ion-card-header>
+              <ion-card-subtitle>Marca</ion-card-subtitle>
+              <ion-card-title>Modelo</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              Farol de neblina, Direção Elétrica, Comando de áudio no volante, Banco bi-partido, Controle de estabilidade, Distribuição eletrônica de frenagem, Kit Multimídia, Pára-choques na cor do veículo.
+            </ion-card-content>
+            <h1 id="precoCard">R$ 120.000,00</h1>
+            <ion-button expand="block"
+            fill="outline" id="buttonD" color="greenyellow">
+              <ion-icon slot="end" name="arrow-back-outline"></ion-icon>
+            </ion-button>
+          </ion-card>
 </ion-content>
