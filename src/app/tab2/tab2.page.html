@@ -19,7 +19,8 @@
     <ion-item>
       <ion-label >Marca:</ion-label>
       
-      <ion-select [(ngModel)]="carro.marca">
+      <ion-select interface="action-sheet" >
+        <ion-select-option *ngFor="let brand of all_brands" value="brand">{{brand}}</ion-select-option>
               
       </ion-select>
     </ion-item>
@@ -31,7 +32,9 @@
   <ion-item>
     <ion-label >Modelo:</ion-label>
     
-    <ion-select [(ngModel)]="carro.modelo">
+    <ion-select [(ngModel)]="model.modelo">
+      <ion-select-option></ion-select-option>
+
             
     </ion-select>
   </ion-item>
@@ -48,12 +51,12 @@
     </ion-avatar>-->
 
     <ion-card>
-      <img src={{carro.foto}}>
+      <img src={{model.foto}}>
 
       <ion-card-header>
         <ion-item>
           <ion-label position="floating"><h2>Descrição:</h2></ion-label>
-          <ion-textarea [(ngModel)]="carro.descricao" placeholder="placeholder"></ion-textarea>
+          <ion-textarea [(ngModel)]="car.descricao" placeholder="placeholder"></ion-textarea>
         </ion-item>
       </ion-card-header>
       <ion-card-content>
@@ -63,7 +66,7 @@
 
   <ion-item id="inp_nome">
     <ion-label position="fixed">Preço:</ion-label>
-    <ion-input [(ngModel)]="carro.preco" type="number"></ion-input>
+    <ion-input [(ngModel)]="car.preco" type="number"></ion-input>
   </ion-item>
   
   <div class="buttonCentralize">
