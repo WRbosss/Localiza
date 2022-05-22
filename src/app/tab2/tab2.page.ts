@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { all_cars_file } from './carros'
 
 @Component({
   selector: 'app-tab2',

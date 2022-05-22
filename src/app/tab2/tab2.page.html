@@ -1,11 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-buttons slot="start">
+    <ion-buttons slot="start" color="greenyellow">
       <ion-button (click)="button_Voltar()">
-        <ion-icon slot="" name="arrow-back-outline"></ion-icon>     
+        <ion-icon id="color" slot="" name="arrow-back-outline"></ion-icon>     
       </ion-button>
     </ion-buttons>
-    <ion-title>Cadastrar</ion-title>
+    <ion-title id="color">Cadastrar</ion-title>
     <ion-buttons slot="end">
     </ion-buttons>
   </ion-toolbar>
@@ -15,8 +15,8 @@
 <ion-content [fullscreen]="true">
 <div id="inp_nome1">
   <ion-list>
-    <ion-item>
-      <ion-label>Marca:</ion-label>
+    <ion-item id="color">
+      <ion-label >Marca:</ion-label>
       <ion-select [(ngModel)]="brand.marca" (ionChange)="brandChange($event)" interface="popover">
         <ion-select-option *ngFor="let every_brand of all_brands" [value]="every_brand">{{every_brand}}</ion-select-option>
       </ion-select>
@@ -26,7 +26,7 @@
 
 <div id="inp_nome1">
 <ion-list>  
-  <ion-item>
+  <ion-item id="color">
     <ion-label >Modelo:</ion-label>
     
     <ion-select [(ngModel)]="model.modelo" (ionChange)="modelChange($event)" interface="popover">
@@ -39,7 +39,7 @@
     <ion-card>
       <img src={{model.foto}}>
       <ion-card-header>
-        <ion-item>
+        <ion-item id="color">
           <ion-label position="floating"><h2>Descrição:</h2></ion-label>
           <ion-textarea [(ngModel)]="car.descricao" placeholder="adicione uma descrição"></ion-textarea>
         </ion-item>
@@ -47,13 +47,14 @@
       <ion-card-content>
       </ion-card-content>
     </ion-card>
-    
-  <ion-item id="inp_nome">
+<div id="inp_nome">  
+  <ion-item id="color">
     <ion-label position="fixed">Preço:</ion-label>
     <ion-input [(ngModel)]="car.preco" type="number"></ion-input>
   </ion-item>
+</div> 
   
   <div class="buttonCentralize">
-  <ion-button class="butCadastrar" color="warning" (click)="create()">Cadastrar</ion-button>
+  <ion-button color="greenyellow" fill="outline" id="buttonD" (click)="create()">Cadastrar</ion-button>
   </div>
 </ion-content>
