@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { all_cars_file } from './carros'
 
 @Component({
   selector: 'app-tab2',
@@ -10,51 +9,50 @@ import { all_cars_file } from './carros'
 
 export class Tab2Page {
 
-  cadastrando: boolean = false
+  cadastrando: boolean 
 
-  car: any = { descricao: '', preco: '' }
+  car: any = { id: Date.now(), descricao: '', preco: '' }
   model: any = { modelo: '', foto:'', quantidade: 1, carros: [] }
-  brand: any = { marca: '', modelos: []}
+  brand: any = { marca: '', modelos: [] }
   
   carros: any = []
 
-  stored_cars: any = []
-  all_brands: any = []
-  all_brand_models: any = []
+  stored_cars: any = []; all_brands: any = []; all_brand_models: any = []
 
   constructor(private router: Router) {
     this.stored_cars = {
       "Chevrolet":
       [
-          {"id":1, "model": "Onix", "url":"https://www.chevrolet.com.br/content/dam/chevrolet/mercosur/brazil/portuguese/index/cars/cars-subcontent/04-images/novo-onix-branco-summit.png?imwidth=419%22%7D"},
-          {"id":2, "model": "Cruze", "url":"https://secure-developments.com/commonwealth/brasil/gm_forms/assets/front/images/jellys/61eb1d424183d.png"}
+          {"id":1, "model": "Onix", "url":"https://www.chevrolet.com.br/content/dam/chevrolet/mercosur/brazil/portuguese/index/cars/cars-subcontent/04-images/novo-onix-branco-summit.png"},
+          {"id":2, "model": "Cruze", "url":"https://secure-developments.com/commonwealth/brasil/gm_forms/assets/front/images/jellys/61eb1d424183d.png"},
+
       ],
       "Fiat":
       [
+        {"id":1, "model":"Pulse", "url": "https://media.discordapp.net/attachments/707292830158159885/977751090026151946/dado1.png"}
   
       ]
     }
-
     this.all_brands = Object.keys(this.stored_cars)
   }
 
-  ngOnInit() {
+  ionViewDidEnter(){
     this.carros = JSON.parse(localStorage.getItem('carros'))
 
     if (this.carros == null){
       this.carros = []
     }
+    this.cadastrando = false
   }
 
   create() {
     if (this.checkForEmpty()) { return }
-
     this.cadastrando = true
 
     this.pushDataIntoArray()
     localStorage.setItem("carros", JSON.stringify(this.carros))
     this.clear()
-    this.button_Voltar()
+    this.navigateTo_Principal()
   }
 
   pushDataIntoArray(){
@@ -151,13 +149,9 @@ export class Tab2Page {
     this.car.preco = ""
   }
 
-  ionViewDidEnter(){
-    this.cadastrando = false
-  }
 
-  //warnUserOf(empty_area:string) {}
 
-  button_Voltar(){
+  navigateTo_Principal(){
     this.router.navigate(['tabs/tab1']);
   }
 
