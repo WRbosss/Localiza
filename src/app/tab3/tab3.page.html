@@ -1,17 +1,30 @@
+<script type="module">
+  import { alertController } from 'https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/index.esm.js';
+  window.alertController = alertController;
+</script>
+
+
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
+    <ion-buttons slot="start" color="greenyellow" >
+      <ion-button id="color" (click)="button_Voltar()" color="greenyellow"> 
+        <ion-icon slot="" name="arrow-back-outline"></ion-icon>     
+      </ion-button>
+    </ion-buttons>
+    <ion-title id="color">Alugue</ion-title>
+    <ion-buttons slot="end">
+    </ion-buttons>
   </ion-toolbar>
-</ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  
+      <ion-img class="transparent"src="https://secure-developments.com/commonwealth/brasil/gm_forms/assets/front/images/jellys/61eb1d424183d.png"></ion-img>
+  
+  <div class="label">
+    <h3 id="label">Tempo do aluguel</h3>
+    <ion-datetime value="2012-12-15T13:47:20.789" id="color"></ion-datetime>
+  </div>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-button expand="block" fill="outline" id="buttonD" color="greenyellow" (click)="presentAlert()">Alugar</ion-button>  
+
 </ion-content>

@@ -1,8 +1,19 @@
 ion-toolbar{
-    text-align: center;
+    size: 50px;
 }
 #adicionarCarro {
     border-radius: 800%;
-    width: 50px;
+    
+}
+#precoCard{
+    text-align: left;
+    color:greenyellow;
+}
+#buttonD{
+    color: greenyellow;
+    border-color: greenyellow;
 }
 
+#color{
+    color:greenyellow;
+}
