@@ -1,22 +1,30 @@
+<script type="module">
+  import { alertController } from 'https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/index.esm.js';
+  window.alertController = alertController;
+</script>
+
+
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-button (click)="button_Voltar()">
+    <ion-buttons slot="start" color="greenyellow" >
+      <ion-button id="color" (click)="button_Voltar()" color="greenyellow"> 
         <ion-icon slot="" name="arrow-back-outline"></ion-icon>     
       </ion-button>
     </ion-buttons>
-    <ion-title>Compra</ion-title>
+    <ion-title id="color">Alugue</ion-title>
     <ion-buttons slot="end">
     </ion-buttons>
   </ion-toolbar>
 
 <ion-content [fullscreen]="true">
-
-  <ion-item id="inp_padding">
-      <ion-img src="https://secure-developments.com/commonwealth/brasil/gm_forms/assets/front/images/jellys/61eb1d424183d.png"></ion-img>
-  </ion-item>
-  <div id="inp_padding">
-    <label><h3>Selicione o Periodo para o aluguel</h3></label>
-      <ion-datetime value="2012-12-15T13:47:20.789" size="start"></ion-datetime>
+  
+      <ion-img class="transparent"src="https://secure-developments.com/commonwealth/brasil/gm_forms/assets/front/images/jellys/61eb1d424183d.png"></ion-img>
+  
+  <div class="label">
+    <h3 id="label">Tempo do aluguel</h3>
+    <ion-datetime value="2012-12-15T13:47:20.789" id="color"></ion-datetime>
   </div>
+
+  <ion-button expand="block" fill="outline" id="buttonD" color="greenyellow" (click)="presentAlert()">Alugar</ion-button>  
+
 </ion-content>
