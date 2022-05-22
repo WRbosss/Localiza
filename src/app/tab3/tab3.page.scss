@@ -17,9 +17,12 @@ ion-toolbar{
 .divCompra{
     text-align: center;
 }
-#label{
+.label{
     color: greenyellow;
     text-align: center;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 20px;
 }
 
 .transparent{
@@ -29,4 +32,9 @@ ion-toolbar{
 #buttonD{
     color: greenyellow;
     border-color: greenyellow;
+}
+
+ion-datetime{
+    border-radius: 8px;
+    
 }
