@@ -17,11 +17,9 @@
 <div id="inp_nome1">
   <ion-list>
     <ion-item>
-      <ion-label >Marca:</ion-label>
-      
-      <ion-select interface="action-sheet" >
-        <ion-select-option *ngFor="let brand of all_brands" value="brand">{{brand}}</ion-select-option>
-              
+      <ion-label>Marca:</ion-label>
+      <ion-select [(ngModel)]="brand.marca" (ionChange)="brandChange($event)" interface="popover">
+        <ion-select-option *ngFor="let every_brand of all_brands" [value]="every_brand">{{every_brand}}</ion-select-option>
       </ion-select>
     </ion-item>
   </ion-list>   
@@ -32,8 +30,8 @@
   <ion-item>
     <ion-label >Modelo:</ion-label>
     
-    <ion-select [(ngModel)]="model.modelo">
-      <ion-select-option></ion-select-option>
+    <ion-select [(ngModel)]="model.modelo" (ionChange)="modelChange($event)" interface="popover">
+      <ion-select-option *ngFor="let every_model of all_brand_models" [value]="every_model">{{every_model}}</ion-select-option>
 
             
     </ion-select>
@@ -56,7 +54,7 @@
       <ion-card-header>
         <ion-item>
           <ion-label position="floating"><h2>Descrição:</h2></ion-label>
-          <ion-textarea [(ngModel)]="car.descricao" placeholder="placeholder"></ion-textarea>
+          <ion-textarea [(ngModel)]="car.descricao" placeholder="adicione uma descrição"></ion-textarea>
         </ion-item>
       </ion-card-header>
       <ion-card-content>

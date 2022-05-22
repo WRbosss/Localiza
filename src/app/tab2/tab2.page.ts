@@ -7,7 +7,10 @@ import { all_cars_file } from './carros'
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss']
 })
+
 export class Tab2Page {
+
+  cadastrando: boolean = false
 
   car: any = { descricao: '', preco: '' }
   model: any = { modelo: '', foto:'', quantidade: 1, carros: [] }
@@ -15,13 +18,27 @@ export class Tab2Page {
   
   carros: any = []
 
+  stored_cars: any = []
   all_brands: any = []
+  all_brand_models: any = []
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+    this.stored_cars = {
+      "Chevrolet":
+      [
+          {"id":1, "model": "Onix", "url":"https://www.chevrolet.com.br/content/dam/chevrolet/mercosur/brazil/portuguese/index/cars/cars-subcontent/04-images/novo-onix-branco-summit.png?imwidth=419%22%7D"},
+          {"id":2, "model": "Cruze", "url":"https://secure-developments.com/commonwealth/brasil/gm_forms/assets/front/images/jellys/61eb1d424183d.png"}
+      ],
+      "Fiat":
+      [
+  
+      ]
+    }
+
+    this.all_brands = Object.keys(this.stored_cars)
+  }
 
   ngOnInit() {
-    for (let key in all_cars_file) { this.all_brands.push(key) }
-
     this.carros = JSON.parse(localStorage.getItem('carros'))
 
     if (this.carros == null){
@@ -30,12 +47,14 @@ export class Tab2Page {
   }
 
   create() {
-    this.model.foto = "https://bobbyhadz.com/images/blog/typescript-create-type-from-object-keys/banner.webp"
-    if (this.checkForEmpty()) { 
-      return 
-    }
+    if (this.checkForEmpty()) { return }
+
+    this.cadastrando = true
 
     this.pushDataIntoArray()
+    localStorage.setItem("carros", JSON.stringify(this.carros))
+    this.clear()
+    this.button_Voltar()
   }
 
   pushDataIntoArray(){
@@ -99,6 +118,42 @@ export class Tab2Page {
     return continue_not_allowed
   }
 
+  brandChange(){
+    if (!this.cadastrando){
+      console.log('brand changing')
+      this.model.foto = ""
+      this.all_brand_models = []
+      for(let model in this.stored_cars[this.brand['marca']])
+      {
+        this.all_brand_models.push(this.stored_cars[this.brand['marca']][model].model)
+      }
+    }
+  }
+
+  modelChange(){
+    console.log(this.cadastrando)
+    if (!this.cadastrando){
+      console.log('model changing')
+      this.model.foto = ""
+      this.model.foto = this.retrievePhoto(this.brand.marca, this.model.modelo)
+    }
+  }
+
+  retrievePhoto(brand:string, model:string){
+    return this.stored_cars[brand].find((e)=> e.model == model).url
+  }
+
+  clear(){
+    this.brand.marca = ""
+    this.model.modelo = ""
+    this.model.foto = ""
+    this.car.descricao = ""
+    this.car.preco = ""
+  }
+
+  ionViewDidEnter(){
+    this.cadastrando = false
+  }
 
   //warnUserOf(empty_area:string) {}
 
