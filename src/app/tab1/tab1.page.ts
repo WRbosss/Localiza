@@ -15,16 +15,14 @@ export class Tab1Page {
   ionViewDidEnter(){
     this.carros = JSON.parse(localStorage.getItem('carros'))
 
-    if (this.carros == null){
-      this.carros = []
-    }
+    if (this.carros == null) { this.carros = [] }
   }
 
   navigateTo_Cadastro(){
     this.router.navigate(['tabs/tab2']);
   }
 
-  navigateTo_TelaCompra(marca:string, modelo:string, id:number, description:string, price:number){
+  navigateTo_TelaCompra(brand:string, model:string, id:number, description:string, price:number){
     this.router.navigate(['tabs/tab3']);
   }
 }
