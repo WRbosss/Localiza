@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
 export class Tab2Page {
 
   cadastrando: boolean 
-
   car: any = { id: Date.now(), descricao: '', preco: '' }
   model: any = { modelo: '', foto:'', quantidade: 1, carros: [] }
   brand: any = { marca: '', modelos: [] }
@@ -20,17 +19,36 @@ export class Tab2Page {
   stored_cars: any = []; all_brands: any = []; all_brand_models: any = []
 
   constructor(private router: Router) {
+    //{"id":, "model":, "url": ""}
     this.stored_cars = {
       "Chevrolet":
       [
-          {"id":1, "model": "Onix", "url":"https://www.chevrolet.com.br/content/dam/chevrolet/mercosur/brazil/portuguese/index/cars/cars-subcontent/04-images/novo-onix-branco-summit.png"},
-          {"id":2, "model": "Cruze", "url":"https://secure-developments.com/commonwealth/brasil/gm_forms/assets/front/images/jellys/61eb1d424183d.png"},
-
+          {"id":1, "model": "Onix", "url":"https://i.imgur.com/CRuoTH8.png"},
+          {"id":2, "model": "Cruze", "url":"https://i.imgur.com/f8gZpZG.png"},
+          {"id":3, "model": "Camaro", "url": "https://i.imgur.com/NtiXKzC.png"},
+          {"id":4, "model": "Tracker", "url:": "https://i.imgur.com/BYijx4y.png"},
+          {"id":5, "model": "Spin", "url:": "https://i.imgur.com/RJl1nM0.png"},
+          {"id":6, "model": "Trailblazer", "url": "https://i.imgur.com/bKaVuLI.png"}
+      ],
+      "Toyota":
+      [
+        {"id":1, "model": "Yaris", "url": "https://i.imgur.com/atQtwaL.png"},
+        {"id":2, "model": "Corolla", "url": "https://i.imgur.com/PWXzxe7.png"},
+        {"id":3, "model": "RAV4", "url": "https://i.imgur.com/b5lI5tX.png"},
+      ],
+      "Ford": 
+      [
+        {"id":1, "model":"Ranger", "url": "https://i.imgur.com/mVsVNWk.png"},
+        {"id":2, "model":"Mustang", "url": "https://i.imgur.com/0ENPWHn.png"},
+        {"id":3, "model":"Bronco", "url": "https://i.imgur.com/8uUSOj7.png"},
+        {"id":4, "model":"Sport", "url": "https://i.imgur.com/epprFkr.png"},
       ],
       "Fiat":
       [
-        {"id":1, "model":"Pulse", "url": "https://media.discordapp.net/attachments/707292830158159885/977751090026151946/dado1.png"}
-  
+        {"id":1, "model":"Pulse", "url": "https://i.imgur.com/mz0Tini.png"},
+        {"id":2, "model": "Toro", "url": "https://i.imgur.com/jJ8BZbK.png"},
+        {"id":3, "model": "Cronos", "url": "https://i.imgur.com/ihi3xxu.png"},
+        {"id":4, "model": "E500", "url": "https://i.imgur.com/ZcXDyAf.png"}
       ]
     }
     this.all_brands = Object.keys(this.stored_cars)
@@ -118,11 +136,11 @@ export class Tab2Page {
 
   brandChange(){
     if (!this.cadastrando){
-      console.log('brand changing')
-      this.model.foto = ""
       this.all_brand_models = []
-      for(let model in this.stored_cars[this.brand['marca']])
-      {
+      this.model.modelo = ""
+
+      this.model.foto = ""
+      for(let model in this.stored_cars[this.brand['marca']]){
         this.all_brand_models.push(this.stored_cars[this.brand['marca']][model].model)
       }
     }
@@ -130,8 +148,8 @@ export class Tab2Page {
 
   modelChange(){
     console.log(this.cadastrando)
-    if (!this.cadastrando){
-      console.log('model changing')
+    if (!this.cadastrando && this.model.modelo != ""){
+
       this.model.foto = ""
       this.model.foto = this.retrievePhoto(this.brand.marca, this.model.modelo)
     }
