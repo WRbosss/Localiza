@@ -27,4 +27,5 @@ export class Tab1Page {
   navigateTo_TelaCompra(marca:string, modelo:string, id:number, description:string, price:number){
     this.router.navigate(['tabs/tab3']);
   }
+ 
 }
