@@ -13,8 +13,6 @@ export class Tab3Page {
 
   a_car: any
 
-  min_time = '13:30'
-
   initial_date_value = this.return_currentDate()
   initial_date: String = ''
   initial_date_active = false
@@ -106,8 +104,5 @@ finaldate_changed(date_value){
 
     const { role } = await alert.onDidDismiss();
     console.log('onDidDismiss resolved with role', role);
-  }
-  ionViewDidLeave() {
-
   }
 }

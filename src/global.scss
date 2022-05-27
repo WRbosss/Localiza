@@ -30,17 +30,14 @@ ion-modal{
     &::part(content){
         backdrop-filter: blur(8px);
     }
-
     ion-content{
         --background: transparent;
-
         --padding-top:24vh;
-        --padding-start: 20px
+        --padding-start: 20px;
         --padding-end: 20px;
 
         ion-datetime{
             border-radius: 8px;
         }
     }
-
 }
