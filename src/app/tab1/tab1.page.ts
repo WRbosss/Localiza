@@ -30,4 +30,5 @@ export class Tab1Page {
 
     this.router.navigate(['tabs/tab3'], navigationExtras);
   }
+ 
 }
