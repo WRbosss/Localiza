@@ -10,25 +10,23 @@ import { Router } from '@angular/router';
 export class Tab2Page {
 
   cadastrando: boolean 
-  car: any = { id: Date.now(), descricao: '', preco: '' }
+  car: any = { descricao: '', preco: '' }
   model: any = { modelo: '', foto:'', quantidade: 1, carros: [] }
   brand: any = { marca: '', modelos: [] }
   
-  carros: any = []
+  carrros: any = []
 
   stored_cars: any = []; all_brands: any = []; all_brand_models: any = []
 
   constructor(private router: Router) {
-    //{"id":, "model":, "url": ""}
+
     this.stored_cars = {
       "Chevrolet":
       [
           {"id":1, "model": "Onix", "url":"https://i.imgur.com/CRuoTH8.png"},
           {"id":2, "model": "Cruze", "url":"https://i.imgur.com/f8gZpZG.png"},
           {"id":3, "model": "Camaro", "url": "https://i.imgur.com/NtiXKzC.png"},
-          {"id":4, "model": "Tracker", "url:": "https://i.imgur.com/BYijx4y.png"},
-          {"id":5, "model": "Spin", "url:": "https://i.imgur.com/RJl1nM0.png"},
-          {"id":6, "model": "Trailblazer", "url": "https://i.imgur.com/bKaVuLI.png"}
+          {"id":4, "model": "Trailblazer", "url": "https://i.imgur.com/bKaVuLI.png"}
       ],
       "Toyota":
       [
@@ -40,8 +38,7 @@ export class Tab2Page {
       [
         {"id":1, "model":"Ranger", "url": "https://i.imgur.com/mVsVNWk.png"},
         {"id":2, "model":"Mustang", "url": "https://i.imgur.com/0ENPWHn.png"},
-        {"id":3, "model":"Bronco", "url": "https://i.imgur.com/8uUSOj7.png"},
-        {"id":4, "model":"Sport", "url": "https://i.imgur.com/epprFkr.png"},
+        {"id":3, "model":"Bronco", "url": "https://i.imgur.com/8uUSOj7.png"}
       ],
       "Fiat":
       [
@@ -49,16 +46,20 @@ export class Tab2Page {
         {"id":2, "model": "Toro", "url": "https://i.imgur.com/jJ8BZbK.png"},
         {"id":3, "model": "Cronos", "url": "https://i.imgur.com/ihi3xxu.png"},
         {"id":4, "model": "E500", "url": "https://i.imgur.com/ZcXDyAf.png"}
+      ],
+      "Hyundai":
+      [
+        {"id":1, "model":"Sport", "url": "https://i.imgur.com/epprFkr.png"}
       ]
     }
     this.all_brands = Object.keys(this.stored_cars)
   }
 
   ionViewDidEnter(){
-    this.carros = JSON.parse(localStorage.getItem('carros'))
+    this.carrros = JSON.parse(localStorage.getItem('carros'))
 
-    if (this.carros == null){
-      this.carros = []
+    if (this.carrros == null){
+      this.carrros = []
     }
     this.cadastrando = false
   }
@@ -68,7 +69,7 @@ export class Tab2Page {
     this.cadastrando = true
 
     this.pushDataIntoArray()
-    localStorage.setItem("carros", JSON.stringify(this.carros))
+    localStorage.setItem("carros", JSON.stringify(this.carrros))
     this.clear()
     this.navigateTo_Principal()
   }
@@ -76,13 +77,13 @@ export class Tab2Page {
   pushDataIntoArray(){
     let brand_in = false; let model_in = false
 
-    for (let b in this.carros){
-      if(this.carros[b].marca == this.brand.marca){
+    for (let b in this.carrros){
+      if(this.carrros[b].marca == this.brand.marca){
         
-        for (let m in this.carros[b].modelos){
-          if(this.carros[b]['modelos'][m].modelo == this.model.modelo) {
-            this.carros[b]['modelos'][m]['carros'].push(Object.assign({}, this.car))
-            this.carros[b]['modelos'][m]['quantidade'] += 1
+        for (let m in this.carrros[b].modelos){
+          if(this.carrros[b]['modelos'][m].modelo == this.model.modelo) {
+            this.carrros[b]['modelos'][m]['carros'].push(Object.assign({}, this.car))
+            this.carrros[b]['modelos'][m]['quantidade'] += 1
 
             model_in = true
             break
@@ -91,9 +92,8 @@ export class Tab2Page {
 
         if (!model_in){
           this.model['carros'].push(Object.assign({}, this.car))
-          this.carros[b]['modelos'].push(Object.assign({}, this.model))
+          this.carrros[b]['modelos'].push(Object.assign({}, this.model))
         }
-
         brand_in = true
         break
       }
@@ -101,10 +101,9 @@ export class Tab2Page {
     }
 
     if(!brand_in){
-      console.log('brand not in')
       this.model['carros'].push(Object.assign({}, this.car))
       this.brand['modelos'].push(Object.assign({}, this.model))
-      this.carros.push(Object.assign({}, this.brand))
+      this.carrros.push(Object.assign({}, this.brand))
       }
 
     }
@@ -161,13 +160,13 @@ export class Tab2Page {
 
   clear(){
     this.brand.marca = ""
+    this.brand.modelos = []
     this.model.modelo = ""
+    this.model.carros = []
     this.model.foto = ""
     this.car.descricao = ""
     this.car.preco = ""
   }
-
-
 
   navigateTo_Principal(){
     this.router.navigate(['tabs/tab1']);

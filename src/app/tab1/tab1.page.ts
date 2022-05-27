@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab1',
@@ -8,21 +8,26 @@ import { Router } from '@angular/router';
 })
 export class Tab1Page {
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   carros: any = []
 
-  ionViewDidEnter(){
+  ionViewDidEnter() {
     this.carros = JSON.parse(localStorage.getItem('carros'))
 
     if (this.carros == null) { this.carros = [] }
   }
 
-  navigateTo_Cadastro(){
+  navigateTo_Cadastro() {
     this.router.navigate(['tabs/tab2']);
   }
+  navigateTo_TelaCompra(a_car: any) {
+    let navigationExtras: NavigationExtras = {
+      state: {
+        car: a_car
+      }
+    }
 
-  navigateTo_TelaCompra(brand:string, model:string, id:number, description:string, price:number){
-    this.router.navigate(['tabs/tab3']);
+    this.router.navigate(['tabs/tab3'], navigationExtras);
   }
 }

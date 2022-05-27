@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { parseISO } from 'date-fns';
+import { format } from 'date-fns';
 
 @Component({
   selector: 'app-tab3',
@@ -9,12 +11,47 @@ import { AlertController } from '@ionic/angular';
 })
 export class Tab3Page {
 
-  constructor(private router: Router,public alertController: AlertController) {}
-  
-  button_Voltar(){
+  a_car: any
+
+  min_time = '13:30'
+
+  initial_date_value = this.return_currentDate()
+  initial_date: String = ''
+  initial_date_active = false
+
+  final_date_value = this.return_currentDate()
+  final_date: String = ''
+  final_date_active = false
+
+  constructor(private router: Router, public alertController: AlertController, private route: ActivatedRoute) { 
+    this.route.queryParams.subscribe(params => {
+      if(this.router.getCurrentNavigation().extras.state){
+        this.a_car = this.router.getCurrentNavigation().extras.state
+        console.log(this.a_car)
+      }
+    })
+
+  }
+
+return_currentDate(){ return format(new Date(), 'yyyy-MM-dd') + "T" + format(new Date(), 'HH:mm:ss') + "Z" }
+
+initialdate_changed(date_value){
+  this.initial_date_value = date_value;
+  this.initial_date = format(parseISO(date_value), 'HH:mm, dd MMM')
+  this.initial_date_active = false
+
+}
+
+finaldate_changed(date_value){
+  this.final_date_value = date_value;
+  this.final_date = format(parseISO(date_value), 'HH:mm, dd MMM')
+  this.final_date_active = false
+}
+
+  button_Voltar() {
     this.router.navigate(['tabs/tab1']);
   }
-  
+
   async presentAlert() {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
@@ -23,18 +60,18 @@ export class Tab3Page {
       message: 'Tem certeza que deseja alugar esse carro',
       buttons: [
         {
-            text: 'Não Aceito',
-            handler: () => {
-                console.log('Disagree clicked');
-            }
+          text: 'Não Aceito',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
         },
         {
-           text: 'Aceito',
-           handler: () => {
+          text: 'Aceito',
+          handler: () => {
             this.router.navigate(['tabs/tab1']);
-           }
-       }
-   ]
+          }
+        }
+      ]
     });
 
     await alert.present();
@@ -48,26 +85,29 @@ export class Tab3Page {
       cssClass: 'my-custom-class',
       header: 'Tempo Aluguel',
       message: 'Tem certeza que deseja alugar esse carro',
-      
+
       buttons: [
         {
-            text: 'Não Aceito',
-            handler: () => {
-                console.log('Disagree clicked');
-            }
+          text: 'Não Aceito',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
         },
         {
-           text: 'Aceito',
-           handler: () => {
+          text: 'Aceito',
+          handler: () => {
             this.router.navigate(['tabs/tab1']);
-           }
-       }
-   ]
+          }
+        }
+      ]
     });
 
     await alert.present();
 
     const { role } = await alert.onDidDismiss();
     console.log('onDidDismiss resolved with role', role);
+  }
+  ionViewDidLeave() {
+
   }
 }

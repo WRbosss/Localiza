@@ -3,12 +3,11 @@
   window.alertController = alertController;
 </script>
 
-
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-buttons slot="start" color="greenyellow" >
-      <ion-button id="color" (click)="button_Voltar()" color="greenyellow"> 
-        <ion-icon slot="" name="arrow-back-outline"></ion-icon>     
+    <ion-buttons slot="start" color="greenyellow">
+      <ion-button id="color" (click)="button_Voltar()" color="greenyellow">
+        <ion-icon slot="" name="arrow-back-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
     <ion-title id="color">Alugue</ion-title>
@@ -16,15 +15,44 @@
     </ion-buttons>
   </ion-toolbar>
 
-<ion-content [fullscreen]="true">
-  
-      <ion-img class="transparent"src="https://secure-developments.com/commonwealth/brasil/gm_forms/assets/front/images/jellys/61eb1d424183d.png"></ion-img>
-  
-  <div class="label">
-    <h3>Tempo do aluguel</h3>
-    <ion-datetime value="2012-12-15T13:47:20.789" slot="start"></ion-datetime>
-  </div>
+  <ion-content [fullscreen]="true">
+    <ion-img class="transparent" src="{{a_car.car.foto}}"></ion-img>
 
-  <ion-button expand="block" fill="outline" id="buttonD" color="greenyellow" (click)="presentAlert()">Alugar</ion-button>  
+    <ion-item id="open-initialdate-modal">
+      <ion-icon icon="calendar-outline" slot="start"></ion-icon>
+      <ion-label>Data de retirada:</ion-label>
+      <ion-text slot="end">{{initial_date}}</ion-text>
+    </ion-item>
 
-</ion-content>
+    <ion-item id="open-finaldate-modal">
+      <ion-icon icon="calendar" slot="start"></ion-icon>
+      <ion-label>Data de devolução:</ion-label>
+      <ion-text slot="end">{{final_date}}</ion-text>
+    </ion-item>
+
+    <ion-modal trigger="open-initialdate-modal">
+      <ng-template>
+        <ion-content>
+          <ion-datetime [value]="initial_date_value" #datetime size="cover"  (ionCancel)="initial_date_active = false"
+            (ionChange)="initialdate_changed(datetime.value)" showDefaultButtons="true">
+          </ion-datetime>
+
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+
+    <ion-modal trigger="open-finaldate-modal">
+      <ng-template>
+        <ion-content>
+          <ion-datetime [value]="final_date_value" #datetime size="cover" (ionCancel)="final_date_active = false"
+            (ionChange)="finaldate_changed(datetime.value)" showDefaultButtons="true">
+          </ion-datetime>
+
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+
+    <ion-button expand="block" fill="outline" id="buttonD" color="greenyellow" (click)="presentAlert()">Alugar
+    </ion-button>
+
+  </ion-content>
