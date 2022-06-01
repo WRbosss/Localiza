@@ -16,7 +16,11 @@
   </ion-toolbar>
 
   <ion-content [fullscreen]="true">
-    <ion-img class="transparent" src="{{a_car.car.foto}}"></ion-img>
+      <ion-img class="transparent" src="{{a_car.car.foto}}"></ion-img>
+      <ion-label>{{a_car.car.marca}}</ion-label>
+      <ion-text>{{a_car.car.modelo}}</ion-text>
+      <ion-tex>{{a_car.car.descricao}}</ion-tex>
+
 
     <ion-item id="open-initialdate-modal">
       <ion-icon icon="calendar-outline" slot="start"></ion-icon>
@@ -24,7 +28,7 @@
       <ion-text slot="end">{{initial_date}}</ion-text>
     </ion-item>
 
-    <ion-item id="open-finaldate-modal">
+    <ion-item id="open-finaldate-modal" *ngIf="initial_date_not_null">
       <ion-icon icon="calendar" slot="start"></ion-icon>
       <ion-label>Data de devolução:</ion-label>
       <ion-text slot="end">{{final_date}}</ion-text>
@@ -41,7 +45,7 @@
       </ng-template>
     </ion-modal>
 
-    <ion-modal trigger="open-finaldate-modal">
+    <ion-modal trigger="open-finaldate-modal" *ngIf="initial_date_not_null" >
       <ng-template>
         <ion-content>
           <ion-datetime [value]="final_date_value" #datetime size="cover"
@@ -52,7 +56,8 @@
       </ng-template>
     </ion-modal>
 
-    <ion-button expand="block" fill="outline" id="buttonD" color="greenyellow" (click)="presentAlert()">Alugar
+    <ion-button *ngIf="final_date_not_null" expand="block" fill="outline" id="buttonD" color="greenyellow" 
+    (click)="presentAlert()">Alugar
     </ion-button>
 
   </ion-content>
