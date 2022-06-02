@@ -5,8 +5,8 @@
 
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-buttons slot="start" color="greenyellow">
-      <ion-button id="color" (click)="button_Voltar()" color="greenyellow">
+    <ion-buttons slot="start" color="#9bd6ba">
+      <ion-button id="color" (click)="button_Voltar()" color="#9bd6ba">
         <ion-icon slot="" name="arrow-back-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -16,11 +16,14 @@
   </ion-toolbar>
 
   <ion-content [fullscreen]="true">
-      <ion-img class="transparent" src="{{a_car.car.foto}}"></ion-img>
-      <ion-label>{{a_car.car.marca}}</ion-label>
-      <ion-text>{{a_car.car.modelo}}</ion-text>
-      <ion-text>{{a_car.car.descricao}}</ion-text>
-
+    <div>
+      <ul style = "list-style: none;" class="divCompra">
+        <li><ion-img class="transparent" src="{{a_car.car.foto}}"></ion-img></li>
+        <li><ion-label>{{a_car.car.marca}}</ion-label></li>
+        <li><ion-label><h1>{{a_car.car.modelo}}</h1></ion-label></li>
+        <li><ion-label>{{a_car.car.descricao}}</ion-label></li>
+      </ul>
+    </div>
 
     <ion-item id="open-initialdate-modal">
       <ion-icon icon="calendar-outline" slot="start"></ion-icon>
@@ -56,8 +59,10 @@
       </ng-template>
     </ion-modal>
 
+    <div id="padding">
     <ion-button *ngIf="final_date_not_null" expand="block" fill="outline" id="buttonD" color="greenyellow" 
     (click)="presentAlert()">Alugar
     </ion-button>
+    </div>
 
   </ion-content>
