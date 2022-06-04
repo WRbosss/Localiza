@@ -6,7 +6,7 @@
         <ion-icon name="add-outline"></ion-icon>     
       </ion-button>
     </ion-buttons>
-    <ion-title id="color">Localiza</ion-title>
+    <ion-title id="color"> <img src="https://cdn.discordapp.com/attachments/707292830158159885/982457349086257182/image-removebg-preview.png" alt="" width="27"> Localiza</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -17,7 +17,7 @@
       <ion-slide *ngFor="let every_car of every_model['carros']; let i = index">
         <div id="card">
           <ion-card>
-            <img src="{{every_model.foto}}" (click)="navigateTo_TelaCompra(
+            <img src="{{every_model.foto}}"(click)="navigateTo_TelaCompra(
               {
               'marca': every_brand.nome, 
               'modelo': every_model.nome, 
@@ -31,7 +31,7 @@
 
             <ion-card-content>{{every_car.descricao}}</ion-card-content>
 
-            <h1 id="precoCard">R${{every_car.preco}}</h1>
+            <h1 id="precoCard">R${{every_car.preco}} <ion-label class="crime">/dia</ion-label></h1>
           </ion-card>
         </div>
       </ion-slide>
