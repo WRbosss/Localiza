@@ -14,7 +14,7 @@
 
   <ng-container *ngFor="let every_brand of carros">
     <ion-slides *ngFor="let every_model of every_brand['modelos']">
-      <ion-slide *ngFor="let every_car of every_model['carros']; let i = index">
+      <ion-slide class="grid" *ngFor="let every_car of every_model['carros']; let i = index">
         <div id="card">
           <ion-card>
             <img src="{{every_model.foto}}"(click)="navigateTo_TelaCompra(
