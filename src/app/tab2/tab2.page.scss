@@ -9,16 +9,13 @@ ion-toolbar{
 
 #inp_nome1{
     padding-top: 22px;
-    
 }
 
 .buttonCentralize{
     text-align: center;
     padding-top: 19px;
 }
-#voltar{
-    padding-left: px;
-}
+
 #labLeft{
     padding-left: 50px;
 }
@@ -26,10 +23,19 @@ ion-toolbar{
     padding-right: 191px;
 }
 #color{
-    color:greenyellow;
-
+    color:#9bd6ba;;
+}
+#color1{
+    color: #009e51;
 }
 #buttonD{
-    color: greenyellow;
+    color: #009e51;
     border-color: greenyellow;
 }
+ion-select{
+    color: rgb(30, 255, 0);
+  }
+.select-interface-option {
+    color: red;
+  }
+  

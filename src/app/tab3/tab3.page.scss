@@ -17,7 +17,6 @@ ion-toolbar{
 .divCompra{
     text-align: center;
     padding: 0px;
-    padding-top: 40px;
 }
 .label{
     color: #9bd6ba;
@@ -32,11 +31,22 @@ ion-toolbar{
 }
 
 #buttonD{
-    color: #9bd6ba;
-    border-color: #9bd6ba;
+    color: #009e51;
+    border-color: #009e51;
 }
 
 #padding{
-    padding-top:20px;
+    padding-bottom:20px;
 }
-
+#colorDateTime{
+    color: #009e51;
+}
+ion-datetime{
+    color: #9bd6ba;
+}
+ion-label{
+    color: #9bd6ba;
+}
+.li{
+    padding-top: 5px;
+}

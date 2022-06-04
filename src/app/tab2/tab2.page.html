@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-buttons slot="start" color="greenyellow">
+    <ion-buttons slot="start" color="#009e51">
       <ion-button (click)="navigateTo_Principal()">
         <ion-icon id="color" slot="" name="arrow-back-outline"></ion-icon>     
       </ion-button>
@@ -40,7 +40,7 @@
       <img src={{model.foto}}>
       <ion-card-header>
         <ion-item id="color">
-          <ion-label position="floating"><h2>Descrição:</h2></ion-label>
+          <ion-label position="floating" color="#009e51"><h2>Descrição:</h2></ion-label>
           <ion-textarea [(ngModel)]="car.descricao" placeholder="adicione uma descrição"></ion-textarea>
         </ion-item>
       </ion-card-header>
@@ -50,11 +50,11 @@
 <div id="inp_nome">  
   <ion-item id="color">
     <ion-label position="fixed">Preço:</ion-label>
-    <ion-input [(ngModel)]="car.preco" type="number"></ion-input>
+    <ion-input [(ngModel)]="car.preco" type="number" id="color"></ion-input>
   </ion-item>
 </div> 
   
   <div class="buttonCentralize">
-  <ion-button color="greenyellow" fill="outline" id="buttonD" (click)="create()">Cadastrar</ion-button>
+  <ion-button color="#009e51" fill="outline" id="buttonD" (click)="create()">Cadastrar</ion-button>
   </div>
 </ion-content>
