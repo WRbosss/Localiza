@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-import { parseISO, addDays, add } from 'date-fns';
+import { parseISO, addDays, differenceInDays } from 'date-fns';
 import { format } from 'date-fns';
 
 @Component({
@@ -26,6 +26,8 @@ export class Tab3Page {
   final_date_value = this.return_currentDate()
   final_date: String = ''
   final_date_active = false
+
+  car_price: any
 
   constructor(private router: Router, public alertController: AlertController, private route: ActivatedRoute) { 
     this.route.queryParams.subscribe(params => {
@@ -61,13 +63,15 @@ finaldate_changed(date_value){
   this.final_date_active = false
 
   this.final_date_not_null = true
+  this.set_car_price()
 }
 
-  button_Voltar() {
+button_Voltar() {
     this.initial_date = ''
     this.final_date = ''
 
     this.a_car = null
+    this.car_price = null
 
     this.initial_date_active = false
     this.final_date_active = false
@@ -75,12 +79,20 @@ finaldate_changed(date_value){
     this.initial_date_value = this.return_currentDate()
     this.final_date_value = this.return_currentDate()
 
+    this.min_final_date = null
+
     this.initial_date_not_null = false
     this.final_date_not_null = false
     this.router.navigate(['tabs/tab1']);
-  }
+}
 
-  remove_from_storage(){
+set_car_price(){
+  let days = differenceInDays(new Date(this.final_date_value), new Date(this.initial_date_value))
+  this.car_price = days * this.a_car.car.preco
+
+}
+
+remove_from_storage(){
     this.carros = JSON.parse(localStorage.getItem('carros'))
 
     for(let brand of this.carros){
@@ -97,11 +109,7 @@ finaldate_changed(date_value){
                 return
               }
             }
-          }
-        }
-      }
-    }
-  }
+          }}}}}
 
   async presentAlert() {
     const alert = await this.alertController.create({
