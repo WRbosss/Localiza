@@ -32,7 +32,7 @@ export class Tab3Page {
   constructor(private router: Router, public alertController: AlertController, private route: ActivatedRoute) { 
     this.route.queryParams.subscribe(params => {
       if(this.router.getCurrentNavigation().extras.state){
-        this.a_car = this.router.getCurrentNavigation().extras.state  
+        this.a_car = this.router.getCurrentNavigation().extras.state['car']
       }
     })
   }
@@ -88,38 +88,43 @@ button_Voltar() {
 
 set_car_price(){
   let days = differenceInDays(new Date(this.final_date_value), new Date(this.initial_date_value))
-  this.car_price = days * this.a_car.car.preco
-
+  this.car_price = days * this.a_car.preco
 }
 
 remove_from_storage(){
+    //retorna os carros atuais do localStorage em uma lista.
     this.carros = JSON.parse(localStorage.getItem('carros'))
 
+    //iterando por cada marca.
     for(let brand of this.carros){
-      if(brand.marca == this.a_car.car.marca){
+      if(brand.nome == this.a_car.marca){
 
+        //iterando por cada modelo ao encontrar a marca.
         for(let model of brand.modelos){
-          if(model.modelo == this.a_car.car.modelo){
-
+          if(model.nome == this.a_car.modelo){
+            
+            //iterando por cada carro ao encontrar o modelo.
             for(let car of model.carros){
-
-              if(car.descricao == this.a_car.car.descricao && car.preco == this.a_car.car.preco){
+              if(car.descricao == this.a_car.descricao && car.preco == this.a_car.preco){
                 model.carros.splice(model.carros.indexOf(car), 1)
                 localStorage.setItem("carros", JSON.stringify(this.carros))
                 return
               }
             }
-          }}}}}
+          }
+        }
+      }
+    }
+  }
 
-  async presentAlert() {
+  async confirm_alertController() {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
-      header: this.a_car.car.marca+ ' '+ this.a_car.car.modelo,
+      header: this.a_car.marca+ ' '+ this.a_car.modelo,
       message: 'Tem certeza que deseja alugar este carro?',
       buttons: [
         {
-          text: 'Cancelar',
-          handler: () => { }
+          text: 'Cancelar'
         },
         {
           text: 'Confirmar',

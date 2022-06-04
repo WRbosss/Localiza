@@ -19,14 +19,14 @@
           <ion-card>
             <img src="{{every_model.foto}}" (click)="navigateTo_TelaCompra(
               {
-              'marca': every_brand.marca, 
-              'modelo': every_model.modelo, 
+              'marca': every_brand.nome, 
+              'modelo': every_model.nome, 
               'foto': every_model.foto, 'descricao': every_car.descricao, 'preco':every_car.preco
             })" />
 
             <ion-card-header >
-              <ion-card-subtitle>{{every_brand.marca}}</ion-card-subtitle>
-              <ion-card-title >{{every_model.modelo}}</ion-card-title>
+              <ion-card-subtitle>{{every_brand.nome}}</ion-card-subtitle>
+              <ion-card-title >{{every_model.nome}}</ion-card-title>
             </ion-card-header>
 
             <ion-card-content>{{every_car.descricao}}</ion-card-content>

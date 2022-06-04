@@ -18,10 +18,10 @@
   <ion-content [fullscreen]="true">
     <div>
       <ul style = "list-style: none;" class="divCompra">
-        <li><ion-img class="transparent" src="{{a_car.car.foto}}"></ion-img></li>
-        <li><ion-label>{{a_car.car.marca}}</ion-label></li>
-        <li class="li"><ion-label><h1>{{a_car.car.modelo}}</h1></ion-label></li>
-        <li class="li"><ion-label>{{a_car.car.descricao}}</ion-label></li>
+        <li><ion-img class="transparent" src="{{a_car.foto}}"></ion-img></li>
+        <li><ion-label>{{a_car.marca}}</ion-label></li>
+        <li class="li"><ion-label><h1>{{a_car.modelo}}</h1></ion-label></li>
+        <li class="li"><ion-label>{{a_car.descricao}}</ion-label></li>
       </ul>
     </div>
 
@@ -63,7 +63,7 @@
 
     <div id="padding">
     <ion-button *ngIf="final_date_not_null" expand="block" fill="outline" id="buttonD" color="greenyellow" 
-    (click)="presentAlert()">Alugar
+    (click)="confirm_alertController()">Alugar
     </ion-button>
     </div>
 

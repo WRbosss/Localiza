@@ -17,8 +17,8 @@
   <ion-list>
     <ion-item id="color">
       <ion-label >Marca:</ion-label>
-      <ion-select [(ngModel)]="brand.marca" (ionChange)="brandChange($event)" interface="popover">
-        <ion-select-option *ngFor="let every_brand of all_brands" [value]="every_brand">{{every_brand}}</ion-select-option>
+      <ion-select [(ngModel)]="brand.nome" (ionChange)="brandChange($event)" interface="popover">
+        <ion-select-option *ngFor="let car of stored_cars| keyvalue" [value]="car.key">{{car.key}}</ion-select-option>
       </ion-select>
     </ion-item>
   </ion-list>  
@@ -29,8 +29,8 @@
   <ion-item id="color">
     <ion-label >Modelo:</ion-label>
     
-    <ion-select [(ngModel)]="model.modelo" (ionChange)="modelChange($event)" interface="popover">
-      <ion-select-option *ngFor="let every_model of all_brand_models" [value]="every_model">{{every_model}}</ion-select-option>   
+    <ion-select [(ngModel)]="model.nome" (ionChange)="modelChange($event)" interface="popover">
+      <ion-select-option *ngFor="let brand_model of selected_brand_models" [value]="brand_model">{{brand_model}}</ion-select-option>   
     </ion-select>
   </ion-item>
 </ion-list>
