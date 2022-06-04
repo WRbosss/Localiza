@@ -17,14 +17,14 @@
       <ion-slide *ngFor="let every_car of every_model['carros']; let i = index">
         <div id="card">
           <ion-card>
-            <img src="{{every_model.foto}}" (click)="navigateTo_TelaCompra(
+            <img src="{{every_model.foto}}"(click)="navigateTo_TelaCompra(
               {
               'marca': every_brand.marca, 
               'modelo': every_model.modelo, 
               'foto': every_model.foto, 'descricao': every_car.descricao, 'preco':every_car.preco
-            })" />
-
-            <ion-card-header >
+            })"/>
+            
+            <ion-card-header>
               <ion-card-subtitle>{{every_brand.marca}}</ion-card-subtitle>
               <ion-card-title >{{every_model.modelo}}</ion-card-title>
             </ion-card-header>
