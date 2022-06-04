@@ -37,7 +37,7 @@
     <ion-modal trigger="open-initialdate-modal">
       <ng-template>
         <ion-content>
-          <ion-datetime [value]="initial_date_value" #datetime size="cover" 
+          <ion-datetime min={{min_initial_date}} [value]="initial_date_value" #datetime size="cover" 
             (ionChange)="initialdate_changed(datetime.value)" showDefaultButtons="true">
           </ion-datetime>
 
@@ -48,7 +48,7 @@
     <ion-modal trigger="open-finaldate-modal" *ngIf="initial_date_not_null" >
       <ng-template>
         <ion-content>
-          <ion-datetime [value]="final_date_value" #datetime size="cover"
+          <ion-datetime min="{{min_final_date}}" [value]="final_date_value" #datetime size="cover"
             (ionChange)="finaldate_changed(datetime.value)" showDefaultButtons="true">
           </ion-datetime>
 

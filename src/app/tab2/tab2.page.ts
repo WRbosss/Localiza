@@ -11,7 +11,7 @@ export class Tab2Page {
 
   cadastrando: boolean 
   car: any = { descricao: '', preco: '' }
-  model: any = { modelo: '', foto:'', quantidade: 1, carros: [] }
+  model: any = { modelo: '', foto:'', carros: [] }
   brand: any = { marca: '', modelos: [] }
   
   carrros: any = []
@@ -83,7 +83,6 @@ export class Tab2Page {
         for (let m in this.carrros[b].modelos){
           if(this.carrros[b]['modelos'][m].modelo == this.model.modelo) {
             this.carrros[b]['modelos'][m]['carros'].push(Object.assign({}, this.car))
-            this.carrros[b]['modelos'][m]['quantidade'] += 1
 
             model_in = true
             break
