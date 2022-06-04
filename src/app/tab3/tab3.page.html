@@ -20,19 +20,19 @@
       <ul style = "list-style: none;" class="divCompra">
         <li><ion-img class="transparent" src="{{a_car.car.foto}}"></ion-img></li>
         <li><ion-label>{{a_car.car.marca}}</ion-label></li>
-        <li><ion-label><h1>{{a_car.car.modelo}}</h1></ion-label></li>
-        <li><ion-label>{{a_car.car.descricao}}</ion-label></li>
+        <li class="li"><ion-label><h1>{{a_car.car.modelo}}</h1></ion-label></li>
+        <li class="li"><ion-label>{{a_car.car.descricao}}</ion-label></li>
       </ul>
     </div>
 
-    <ion-item id="open-initialdate-modal">
-      <ion-icon icon="calendar-outline" slot="start"></ion-icon>
-      <ion-label>Data de retirada:</ion-label>
+    <ion-item id="open-initialdate-modal" >
+      <ion-icon icon="calendar-outline" slot="start" id="colorDateTime"></ion-icon>
+      <ion-label id="color">Data de retirada:</ion-label>
       <ion-text slot="end">{{initial_date}}</ion-text>
     </ion-item>
 
     <ion-item id="open-finaldate-modal" *ngIf="initial_date_not_null">
-      <ion-icon icon="calendar" slot="start"></ion-icon>
+      <ion-icon icon="calendar" slot="start" id="colorDateTime"></ion-icon>
       <ion-label>Data de devolução:</ion-label>
       <ion-text slot="end">{{final_date}}</ion-text>
     </ion-item>
