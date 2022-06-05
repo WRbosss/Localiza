@@ -34,6 +34,9 @@ export class Tab3Page {
       if(this.router.getCurrentNavigation().extras.state){
         this.a_car = this.router.getCurrentNavigation().extras.state['car']
       }
+      else{
+        this.button_Voltar()
+      }
     })
   }
 
