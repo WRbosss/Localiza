@@ -33,7 +33,10 @@ export class Tab3Page {
     this.route.queryParams.subscribe(params => {
       if(this.router.getCurrentNavigation().extras.state){
         this.a_car = this.router.getCurrentNavigation().extras.state['car']
-      }else{this.button_Voltar()}
+      }
+      else{
+        this.button_Voltar()
+      }
     })
   }
 

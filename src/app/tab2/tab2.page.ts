@@ -17,8 +17,6 @@ export class Tab2Page {
 
   carros: any = []
   continue_not_allowed: Boolean = true
-  //sequencia não permitida - false - sequencia é permitida.
-  //sequencia não permitida - true - sequência não é permitida.
 
   //carros pré-definidos, removendo a necessidade de adicionar manualmente.
   stored_cars: any = [];
