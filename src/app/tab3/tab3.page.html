@@ -19,9 +19,9 @@
     <div>
       <ul style = "list-style: none;" class="divCompra">
         <li><ion-img class="transparent" src="{{a_car.foto}}"></ion-img></li>
-        <li><ion-label>{{a_car.marca}}</ion-label></li>
-        <li class="li"><ion-label><h1>{{a_car.modelo}}</h1></ion-label></li>
-        <li class="li"><ion-label>{{a_car.descricao}}</ion-label></li>
+        <li><ion-label id="color">{{a_car.marca}}</ion-label></li>
+        <li class="li"><ion-label id="color"><h1>{{a_car.modelo}}</h1></ion-label></li>
+        <li class="li"><ion-label id="color">{{a_car.descricao}}</ion-label></li>
       </ul>
     </div>
 
@@ -33,11 +33,15 @@
 
     <ion-item id="open-finaldate-modal" *ngIf="initial_date_not_null">
       <ion-icon icon="calendar" slot="start" id="colorDateTime"></ion-icon>
-      <ion-label>Data de devolução:</ion-label>
+      <ion-label id="color">Data de devolução:</ion-label>
       <ion-text slot="end">{{final_date}}</ion-text>
     </ion-item>
-
-    R${{car_price}}
+    
+    <ion-item *ngIf="final_date_not_null">
+      <ion-icon name="cash-outline" id="colorDateTime" slot="start"></ion-icon>
+      <ion-label id="color">Preço do Aluguel</ion-label>
+      <ion-label id="editPreco" slot="end">{{car_price}}</ion-label>
+    </ion-item>
 
     <ion-modal trigger="open-initialdate-modal">
       <ng-template>

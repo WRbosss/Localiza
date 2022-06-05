@@ -33,7 +33,7 @@ export class Tab3Page {
     this.route.queryParams.subscribe(params => {
       if(this.router.getCurrentNavigation().extras.state){
         this.a_car = this.router.getCurrentNavigation().extras.state['car']
-      }
+      }else{this.button_Voltar()}
     })
   }
 
@@ -88,7 +88,7 @@ button_Voltar() {
 
 set_car_price(){
   let days = differenceInDays(new Date(this.final_date_value), new Date(this.initial_date_value))
-  this.car_price = days * this.a_car.preco
+  this.car_price ="R$" + (days * this.a_car.preco)
 }
 
 remove_from_storage(){
